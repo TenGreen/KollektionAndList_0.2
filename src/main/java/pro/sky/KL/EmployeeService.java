@@ -17,24 +17,29 @@ public class EmployeeService {
         String newLastName = scanner.nextLine();
         System.out.println("имя ");
         String newFirstName = scanner.nextLine();
-
         Employee employee = new Employee(newLastName, newFirstName);
         return employee;
     }
 
     public void addNewEmployee(Employee newEmployee) {
-        int i = 0;
-        while (true) {
-            if (employee[i] == null) {
-                employee[i] = newEmployee;
-                System.out.println("Работник добавлен под индексом " + i);
-                return;
-            } else {
-                i++;
-            }
-            if (i == 10) {
-                throw new RuntimeException("В массиве нет свободных мест");
-            }
+        if (!employee.equals(0) & employee.size() < 10) {
+            employee.add(newEmployee);
+            System.out.println("Работник добавлен под индексом "
+                    + employee.size());
+        }
+    }
+
+    public void delEmployee(int num) {
+        employee.remove(num);
+        System.out.println("Работник с индексом " + num + " удален");
+    }
+
+    public Employee findEmloyee(List<Employee> employee, int i) {
+        if (i <= employee.size()) {
+            return employee.get(i);
+        } else {
+            System.out.println("индекс больше длины массива");
+            return null;
         }
     }
 }

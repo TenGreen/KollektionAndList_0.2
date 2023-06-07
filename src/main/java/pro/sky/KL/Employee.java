@@ -3,10 +3,6 @@ package pro.sky.KL;
 import java.util.Objects;
 
 public class Employee {
-    {
-
-    }
-
     private String lastName;
     private String firstName;
 
@@ -15,7 +11,6 @@ public class Employee {
         this.firstName = firstName;
     }
 
-
     @Override
     public String toString() {
         return "Employee{" +
@@ -23,9 +18,7 @@ public class Employee {
                 ", firstName='" + firstName + '\'' +
                 '}';
     }
-
-    @Override
-    public boolean equals(Object o) {
+    public boolean equals(Employee o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
